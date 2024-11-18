@@ -5,4 +5,3 @@
 app/migrations/
 db.sqlite3
 .pytest_cache/
-bookstore/settings.py
