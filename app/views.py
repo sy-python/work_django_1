@@ -21,7 +21,7 @@ class BookViewSet(viewsets.ModelViewSet):
             return self.queryset.filter(author_id=author_id)
         return self.queryset
 
-    @action(detail=True, methods=["post"])
+    @action(detail=True, methods=["post"], queryset=Book.objects.select_for_update())
     def buy(self, request, pk=None):
         book = self.get_object()
         if book.count > 0:
